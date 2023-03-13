@@ -1,4 +1,4 @@
-# Face-is-the-Key
+# Attendance with CV
 
 ### Description
 Face verification using OpenCV with FaceNet.
