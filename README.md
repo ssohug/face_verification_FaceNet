@@ -23,20 +23,22 @@ cd unknown
 **Create Embeddings**
 To create embeddings for the user, run the following command - 
 ```
-python extract_embeddings.py
+python3 extract_embeddings.py --dataset dataset --embeddings output/embeddings.pickle --detector face_detection_model --embedding-model openface_nn4.small2.v1.t7
 ```
 This will store the embeddings in the pickle folder
 
 **Train Classification Model** 
 To train the SVM classification model, run the following command - 
 ```
-python train_model.py
+python3 train_model.py --embeddings output/embeddings.pickle     --recognizer output/recognizer.pickle   --le output/le.pickle
 ```
 
 
 ```
-The face of the user will be recognized using the webcam.
-
+To verify the face run the following command -
+```
+python3 recognize.py --detector face_detection_model     --embedding-model openface_nn4.small2.v1.t7     --recognizer output/recognizer.pickle   --le output/le.pickle   --image images/aii.png
+```
 ### References 
 1. <https://www.pyimagesearch.com/2018/09/24/opencv-face-recognition/>
 2. <https://arxiv.org/abs/1503.03832>
